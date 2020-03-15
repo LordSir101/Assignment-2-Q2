@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import javafx.beans.InvalidationListener;
 import java.util.Observable;
 
-public class Store{
+public class Store extends Observable{
 
 	private String name;
 	private ArrayList<Customer>	customersStore;
@@ -17,6 +17,8 @@ public class Store{
 
 	public void addCustomer(Customer customer) {
 		customersStore.add(customer);
+		setChanged();
+		notifyObservers();	//calls update for observer
 		
 	}
 	

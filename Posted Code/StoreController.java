@@ -1,6 +1,7 @@
 import java.util.Observable;
+import java.util.Observer;
 
-public class StoreController  extends Observable{
+public class StoreController implements Observer{
 	private Store model;
 	private StoreView view;
 
@@ -11,6 +12,12 @@ public class StoreController  extends Observable{
 
 	public void addCustomer(Customer name){
 		model.addCustomer(name);
-		notifyObservers();
+	}
+
+	//is called by notifyObservers in Store.java
+	@Override
+	public void update(Observable o, Object arg) {
+		view.printStoreDetails(model);
+		
 	}
 }
