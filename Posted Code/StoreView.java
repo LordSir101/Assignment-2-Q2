@@ -5,13 +5,13 @@ import java.util.Iterator;
 import java.util.Observable;
 import java.util.Observer;
 
-public class StoreView implements Observer {
+public class StoreView{
 	
 	
 	public void printStoreDetails(Store store){
 		ArrayList<Customer> customerList;
 		
-		System.out.println("Store: ");
+		System.out.println("\nStore: ");
 		System.out.println("Name: " + store.getName());
 
 		// Displaying the customer list
@@ -26,13 +26,9 @@ public class StoreView implements Observer {
         while (iter.hasNext()) { 
             System.out.println(iter.next().getName() + " "); 
         } 
+        System.out.println("---------------------------------\n");
 	}
 
-	@Override
-	public void update(Observable o, Object arg) {
-		// TODO Auto-generated method stub
-		
-	}
 
 }
 
